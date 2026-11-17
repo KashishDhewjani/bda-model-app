@@ -31,14 +31,14 @@ if st.button("Predict"):
 with st.spinner("Asking the model. The first request can take a few minutes "
          "while the endpoint wakes up..."):
   # Try to send the request; wait up to 300 seconds for a reply
-try:
+  try:
     r = requests.post(url, headers=headers, json=body, timeout=300)
-# If the request could not be sent at all (no internet, wrong address)...
-except requests.RequestException as e:
-   # ...show the problem in a red box
-   st.error(f"Could not reach the model: {e}")
-   # ...and stop running the rest of the script
-   st.stop()
+  # If the request could not be sent at all (no internet, wrong address)...
+  except requests.RequestException as e:
+    # ...show the problem in a red box
+    st.error(f"Could not reach the model: {e}")
+    # ...and stop running the rest of the script
+    st.stop()
 # Status code 200 means the endpoint answered successfully
 
 f r.status_code == 200:
