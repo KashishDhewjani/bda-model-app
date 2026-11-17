@@ -41,7 +41,7 @@ with st.spinner("Asking the model. The first request can take a few minutes "
     st.stop()
 # Status code 200 means the endpoint answered successfully
 
-f r.status_code == 200:
+if r.status_code == 200:
   # Take the first (and only) prediction out of the reply
   score = r.json()["predictions"][0]
   # Turn the score into New York's grade: A is 0-13, B is 14-27, C is 28 or more
