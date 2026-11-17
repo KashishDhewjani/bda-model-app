@@ -31,7 +31,7 @@ if st.button("Predict"):
 with st.spinner("Asking the model. The first request can take a few minutes "
          "while the endpoint wakes up..."):
   # Try to send the request; wait up to 300 seconds for a reply
-  try:
+try:
     r = requests.post(url, headers=headers, json=body, timeout=300)
 # If the request could not be sent at all (no internet, wrong address)...
 except requests.RequestException as e:
